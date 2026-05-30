@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} — User Transactions{% endblock %}
+{% block content %}
+<h2>Transactions — {{ user.name }} ({{ user.account_number }})</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Amount (₹)</th>
+      <th>Counterparty</th>
+      <th>Date/Time (UTC)</th>
+      <th>Balance After (₹)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in txns %}
+      <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.type }}</td>
+        <td>{{ '%.2f' % t.amount }}</td>
+        <td>{{ t.counterparty_ac or '-' }}</td>
+        <td>{{ t.created_at }}</td>
+        <td>{{ '%.2f' % t.balance_after }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="6" class="muted">No transactions for this user.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="btn" href="{{ url_for('admin_users') }}">Back to Users</a>
+{% endblock %}

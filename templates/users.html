@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} — Users{% endblock %}
+{% block content %}
+<h2>Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Account #</th>
+      <th>Created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for u in users %}
+    <tr>
+      <td>{{ u.id }}</td>
+      <td>{{ u.name }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.account_number }}</td>
+      <td>{{ u.created_at }}</td>
+      <td>
+        <a class="btn small" href="{{ url_for('admin_user_transactions', user_id=u.id) }}">View Txns</a>
+        <form method="post" action="{{ url_for('admin_delete_user', user_id=u.id) }}" style="display:inline" onsubmit="return confirm('Delete this user? This will remove their account & transactions.');">
+          <button class="btn danger small" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="6" class="muted">No users yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

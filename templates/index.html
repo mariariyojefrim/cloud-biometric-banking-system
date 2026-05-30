@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} — Secure Cloud Biometric Banking{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>Seamless, Cloud-Based Biometric Authentication</h1>
+    <p>Register with your biometric image, and access real-time banking:
+       deposits, transfers, and instant transaction history—all processed securely in the cloud.</p>
+    <div class="cta">
+      <a class="btn primary" href="{{ url_for('register') }}">Get Started</a>
+      <a class="btn" href="{{ url_for('login') }}">User Login</a>
+      <a class="btn subtle" href="{{ url_for('admin_login') }}">Admin Panel</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3>Why Cloud Biometric?</h3>
+    <ul>
+      <li>Server-side matching for strong security</li>
+      <li>Device-agnostic access</li>
+      <li>Scalable and audit-ready</li>
+    </ul>
+  </div>
+</section>
+
+<section class="grid-3">
+  <div class="card">
+    <h3>Register</h3>
+    <p>Sign up with your name, email, and biometric image.</p>
+  </div>
+  <div class="card">
+    <h3>Login</h3>
+    <p>Authenticate using your biometric—no passwords needed.</p>
+  </div>
+  <div class="card">
+    <h3>Transact</h3>
+    <p>Deposit, transfer funds, and view your transaction history in real time.</p>
+  </div>
+</section>
+{% endblock %}

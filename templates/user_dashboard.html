@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} — Dashboard{% endblock %}
+{% block content %}
+<h2>Welcome, {{ user.name }}</h2>
+<div class="cards">
+  <div class="card big">
+    <h3>Your Account</h3>
+    <p><strong>Account #:</strong> {{ user.account_number }}</p>
+    <p><strong>Balance:</strong> ₹ {{ '%.2f' % account.balance }}</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('deposit') }}">Deposit</a>
+      <a class="btn" href="{{ url_for('transfer') }}">Transfer</a>
+      <a class="btn" href="{{ url_for('history') }}">Transaction History</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Quick Tips</h3>
+    <ul>
+      <li>Use accurate, well-lit biometric images.</li>
+      <li>Transfers require a valid 12-digit account number.</li>
+      <li>All operations are recorded in your transaction log.</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

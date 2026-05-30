@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} — Register{% endblock %}
+{% block content %}
+<h2>Create Your Account</h2>
+<form method="post" enctype="multipart/form-data" class="form">
+  <label>Name
+    <input type="text" name="name" required />
+  </label>
+  <label>Email
+    <input type="email" name="email" required />
+  </label>
+  <label>Biometric Image (face/fingerprint image)
+    <input type="file" name="biometric" accept="image/*" required />
+  </label>
+  <button class="btn primary" type="submit">Register</button>
+</form>
+<p class="muted">We compute a privacy-preserving perceptual hash of your image on the server.</p>
+{% endblock %}

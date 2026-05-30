@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} — Transfer{% endblock %}
+{% block content %}
+<h2>Transfer Funds</h2>
+<form method="post" class="form">
+  <label>Target Account Number
+    <input type="text" name="target_ac"  placeholder="12-digit account number" required />
+  </label>
+  <label>Amount (₹)
+    <input type="number" name="amount" step="0.01" min="0.01" required />
+  </label>
+  <button class="btn primary" type="submit">Send</button>
+</form>
+{% endblock %}

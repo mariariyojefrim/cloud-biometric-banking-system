@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} — Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Total Users</h3>
+    <p class="stat">{{ user_count }}</p>
+  </div>
+  <div class="card">
+    <h3>Total System Balance (₹)</h3>
+    <p class="stat">{{ '%.2f' % total_bal }}</p>
+  </div>
+  <div class="card">
+    <h3>Total Transactions</h3>
+    <p class="stat">{{ tx_count }}</p>
+  </div>
+</div>
+
+<div class="actions">
+  <a class="btn" href="{{ url_for('admin_users') }}">Manage Users</a>
+</div>
+{% endblock %}

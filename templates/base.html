@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ app_name }}{% block title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="{{ url_for('index') }}">{{ app_name }}</a>
+      <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        {% if session.get('user_id') %}
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        {% elif session.get('is_admin') %}
+          <a href="{{ url_for('admin_dashboard') }}">Admin</a>
+          <a href="{{ url_for('admin_logout') }}">Logout</a>
+        {% else %}
+          <a href="{{ url_for('register') }}">Register</a>
+          <a href="{{ url_for('login') }}">User Login</a>
+          <a href="{{ url_for('admin_login') }}">Admin</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-wrap">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ 2025 }} {{ app_name }} • Demo project</p>
+    </div>
+  </footer>
+</body>
+</html>

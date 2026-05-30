@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} — Transaction History{% endblock %}
+{% block content %}
+<h2>Transaction History</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Amount (₹)</th>
+      <th>Counterparty</th>
+      <th>Date/Time (UTC)</th>
+      <th>Balance After (₹)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in txns %}
+      <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.type }}</td>
+        <td>{{ '%.2f' % t.amount }}</td>
+        <td>{{ t.counterparty_ac or '-' }}</td>
+        <td>{{ t.created_at }}</td>
+        <td>{{ '%.2f' % t.balance_after }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="6" class="muted">No transactions yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
