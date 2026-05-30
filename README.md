@@ -1,6 +1,7 @@
 
 Cloud Biometric Banking System 
-     A secure cloud-based banking application using fingerprint
+     
+-A secure cloud-based banking application using fingerprint
 authentication for fraud prevention. Developed with Python Flask as final year project. 
 
 Key Features
@@ -31,7 +32,7 @@ Tech Stack
 
 4. Open `http://127.0.0.1:5000`
 
-Developer
-Maria Riyo Jefri M 
-B.Sc Computer Science Graduate - 2026 
+Developer|
+Maria Riyo Jefri M |
+B.Sc Computer Science Graduate - 2026 |
 GitHub:https://github.com/mariariyojefrim/cloud-biometric-banking-system
