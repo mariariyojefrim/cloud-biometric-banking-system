@@ -1,7 +1,7 @@
 
 Cloud Biometric Banking System 
      
-     A secure cloud-based banking application using fingerprint
+A secure cloud-based banking application using fingerprint
 authentication for fraud prevention. Developed with Python Flask as final year project. 
 
 Key Features
